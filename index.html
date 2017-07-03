@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shadowsocks server using google cloud console</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<h2 style="margin-top: 10%" align="center">Setup shawdowsocks server using google cloud console</h2>
+<h3 align="center">shadowsocks with mac os and ios</h3>
+<p align="center"> Setup your google cloud console and create an instance in google cloud console</p>
+
+<img src="img/createInstance.png">
+<p align="center">create the instance also known as virtual machine. I am using linux Debian for this tutorial</p>
+<img src="img/theInstance.png">
+
+<p align="center">Here is the instance we just created. Take note of the internal id and the external id. we will use both</p>
+<img src="img/firewall1.png">
+<p align="center">We have to make a change to the google firewall for shadowsocks to connect</p>
+<img src="img/firewall2.png">
+<p align="center">copy my setting that I have in this photo. This is very important for shadowsocks to work.</p>
+<img src="img/firewall3.png">
+<p align="center"></p>
+<img src="img/firewall4.png">
+<p align="center"></p>
+
+<img src="img/installShadowsocks1.png">
+<p align="center">Here we select the SSH button on it opens up SSH</p>
+
+<img src="img/installShadowsocks2.png">
+<p align="center">type in these commands to install shadowsocks sudo apt update
+    sudo apt install shadowsocks-libev
+</p>
+
+<img src="img/shadowsocksConfig.png">
+<p align="center">sudo vim /etc/shadowsocks-libev/config.json</p>
+
+<img src="img/shadowsocksConfig1.png">
+<p align="center">Edit the configuration file
+
+
+    Enter your internal ip address in the server – so my internal ip was 10.138.0.3
+    The internal ip address can be found on the instance area. The port number is good.
+    Local port is good. Password can be changed. Timeout is good.
+    Change the method to aes-256-cfb
+</p>
+<h4> to edit press shift i</h4>
+
+<h5>To Save
+    Press alt enter
+    Type :x
+    This will save and exit
+</h5>
+
+
+<img src="img/startShadowsocks1.png">
+<p align="center">lets start the server
+    sudo /etc/init.d/shadowsocks-libev start
+
+</p>
+<img src="img/staticIp.png">
+<p align="center">we need to create a static ip address for the server
+</p>
+
+<img src="img/staticIp1.png">
+<p align="center">we need to create a static ip address for the server
+</p>
+
+<img src="img/staticIp2.png">
+<p align="center">change type from Ephemeral to static
+</p>
+
+<img id="install" src="img/installLsof1.png">
+<p align="center">sudo apt-get install lsof
+</p>
+
+<img src="img/installLsof2.png">
+<p align="center">
+</p>
+
+<img src="img/installLsof3.png">
+<p align="center">this looks good. We need to restart the VM now
+</p>
+
+<img src="img/restart.png">
+<p align="center">Hit reset
+</p>
+
+<img src="img/test1.png">
+<p align="center">open terminal on mac
+</p>
+
+<img src="img/test2.png">
+<p align="center">type telnet and ip of your external ip and port number
+</p>
+<h5>telnet 104.196.226.60 8388
+</h5>
+
+<img src="img/test3.png">
+<p align="center"></p>
+
+<img src="img/test4.png">
+<p align="center"></p>
+
+<img src="img/test5.png">
+<p align="center">That’s good we made a connection
+</p>
+
+
+<h2>Lets make a connection with a client now using mac os <a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases">shadowsocks </a></h2>
+
+
+
+<img src="img/macShadowsocks1.png">
+<p align="center">
+</p>
+
+<img src="img/macShadowsocks2.png">
+<p align="center">go to servers
+
+</p>
+
+<img src="img/macShadowsocks3.png">
+<p align="center">add your external ip
+    port number: 8388
+    encryption aes-256-cfb
+    password: password123
+
+    Now you should be able to use google
+    Make sure your password is correct
+</p>
+
+<h2> Shadowsocks for ios <a href="https://itunes.apple.com/cn/app/wingy-proxy-for-ss-http-s/id1178584911?l=zh&mt=8">wingy ios</a></h2>
+
+<img src="img/iosShadowsocks1.png">
+<p align="center">go to servers
+
+</p>
+
+<img src="img/iosShadowsocks1.png">
+<p align="center">IOS iphone setup
+    Wingy – HTTP ios apple store
+</p>
+
+<img src="img/iosShadowsocks2.png">
+<p align="center">go to servers
+</p>
+
+<img src="img/iosShadowsocks3.png">
+<p align="center">add your external ip
+    port number: 8388
+    encryption aes-256-cfb
+    password: password123
+</p>
+
+<p>if your having trouble connecting read agian. Make sure you set up the firewall rules correctly. make sure you use
+    the external ip on the ios</p>
+
+
+
+</body>
+</html>
