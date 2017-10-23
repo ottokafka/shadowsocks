@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>shadowsocks server using google cloud console</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+<div align="center">
 <h2 style="margin-top: 10%" align="center">Setup shawdowsocks server using google cloud console</h2>
 <h3 align="center">shadowsocks with mac os and ios</h3>
 <p align="center"> Setup your google cloud console and create an instance in google cloud console</p>
@@ -156,7 +158,42 @@
 
 <p>if your having trouble connecting read agian. Make sure you set up the firewall rules correctly. make sure you use
     the external ip on the ios</p>
+</div>
 
+<div align="center">
+    <h1>OSX Shadowsocks client</h1>
+    <h2>How to install Shadowsocks client on Mac</h2>
+    <p>Brew (brew is a package manager for mac)</p>
+    <p>Open up terminal</p>
+    <img src="terminal.png">
+    <p>Brew install shadowsocks-libev</p>
+    <img src="terminalBrew.png">
+
+    <h3>Connecting to the server</h3>
+    <img src="connectingToTheServer.png">
+
+    <p>Example</p>
+    <h4>ss-local -s 123.123.123.123 -p 1234 -b 127.0.0.1 -l 1080 -k 1 -m aes-256-cfb</h4>
+    <img src="sslocal.png">
+
+    <p>Successful connection will look like this</p>
+    <img src="success.png">
+
+    <h2>Dropbox with shadowsocks</h2>
+    <img src="dropbox.png">
+
+    <h2>Google Chrome with shadowsocks</h2>
+    <p>go to setting</p>
+    <img src="network.png">
+    <p>go to network </p>
+    <img src="advancedNetwork.png">
+    <p>go to advanced </p>
+    <img src="globalProxySettings.png">
+    <p>go to click Proxies tab and Socks Proxy</p>
+    <p>Bypass proxy settings for host and domains</p>
+    <h3>localhost, 127.0.0.1</h3>
+    <p>hit OK Apply</p>
+</div>
 
 
 </body>
